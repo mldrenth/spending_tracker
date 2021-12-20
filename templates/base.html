@@ -1,9 +1,10 @@
 <html>
     <head>
         <title>{{ title }} -- My Spending Tracker</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
     </head>
-    <body>
-        <header>Bla</header>
+    <body class="bg-sky-100">
+        <header></header>
         <div class="container">
             {% block content %}
                 
