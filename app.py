@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-# from controllers.countries_controller import countries_blueprint
+import repositories.transaction_repository as transaction_repository
 
 
 
@@ -15,11 +15,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-   
-    return render_template(
-        "index.html", title="Home"
+   transactions = transaction_repository.select_all()
+   return render_template(
+        "index.html", title="Home", transactions = transactions
     )
-
 
 if __name__ == "__main__":
     app.run(debug=True)
