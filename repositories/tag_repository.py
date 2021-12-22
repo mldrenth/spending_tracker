@@ -33,3 +33,8 @@ def select(id):
     if result is not None:
         tag = Tag(result['name'], result['active'], result['id'])
     return tag
+
+#DELETE ALL
+def delete_all():
+    sql = "DELETE FROM tags"
+    run_sql(sql)

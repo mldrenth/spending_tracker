@@ -32,3 +32,8 @@ def select(id):
     if result is not None:
         merchant = Merchant(result['name'], result['active'], result['id'])
     return merchant
+
+#DELETE ALL
+def delete_all():
+    sql = "DELETE FROM merchants"
+    run_sql(sql)

@@ -28,3 +28,14 @@ def select_all():
         transaction = Transaction(row['name'], row['price'], merchant, tag, row['timestamp'], row['id'])
         transactions.append(transaction)
     return transactions
+
+#DELETE ALL
+def delete_all():
+    sql = "DELETE FROM transactions"
+    run_sql(sql)
+
+#DELETE BY ID
+def delete(id):
+    sql = "DELETE FROM transactions WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
