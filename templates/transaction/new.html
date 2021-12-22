@@ -20,7 +20,7 @@
 <div class="flex justify-center items-center">
     <div class="md:grid md:grid-cols-1 md:gap-6">
         <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="#" method="POST">
+            <form action="/" method="POST">
                 <div class="shadow sm:rounded-md sm:overflow-hidden">
                     <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                         <div class="grid grid-cols-3 gap-6">
@@ -46,8 +46,8 @@
                             </div>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="merchant" class="block text-sm font-medium text-gray-700">Merchant</label>
-                            <select id="merchant" name="merchant"
+                            <label for="merchant_id" class="block text-sm font-medium text-gray-700">Merchant</label>
+                            <select id="merchant_id" name="merchant_id"
                                 class="mt-1 block w-full py-2 px-3 border border-sky-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm">
                                 {% for merchant in merchants %}
                                 <option value="{{merchant.id}}">{{ merchant.name }}</option>
@@ -56,8 +56,8 @@
                             </select>
                         </div>
                         <div class="col-span-6 sm:col-span-3">
-                            <label for="tag" class="block text-sm font-medium text-gray-700">Tag</label>
-                            <select id="tag" name="tag"
+                            <label for="tag_id" class="block text-sm font-medium text-gray-700">Tag</label>
+                            <select id="tag_id" name="tag_id"
                                 class="mt-1 block w-full py-2 px-3 border border-sky-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm">
                                 {% for tag in tags %}
                                 <option value="{{tag.id}}">{{ tag.name }}</option>
