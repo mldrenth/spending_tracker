@@ -29,6 +29,26 @@ def select_all():
         transactions.append(transaction)
     return transactions
 
+#SELECT BY ID
+def select(id):
+    transaction = None
+    sql= "SELECT * FROM transactions WHERE id = %s "
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        merchant = merchant_repository.select(result['merchant_id'])
+        tag = tag_repository.select(result['tag_id'])
+        transaction = Transaction(result['name'], result['price'], merchant, tag, result['timestamp'], result['id'])
+    return transaction
+
+
+#UPDATE
+def update(transaction):
+    sql = "UPDATE transactions SET (name, price, merchant_id, tag_id, timestamp) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = (transaction.name, transaction.price, transaction.merchant.id, transaction.tag.id, transaction.timestamp, transaction.id)
+    run_sql(sql, values)
+
 #DELETE ALL
 def delete_all():
     sql = "DELETE FROM transactions"

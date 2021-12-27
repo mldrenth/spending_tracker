@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request
 from flask import Blueprint
+from datetime import datetime
 from models.merchant import Merchant
 from models.tag import Tag
 from models.merchant import Merchant
@@ -25,12 +26,21 @@ def create_transaction():
     price = request.form['price']
     merchant_id = request.form['merchant_id']
     tag_id = request.form['tag_id']
-    timestamp = request.form['timestamp']
+    timestamp = datetime.fromisoformat(request.form['timestamp'])
     merchant = merchant_repository.select(merchant_id)
     tag = tag_repository.select(tag_id)
     transaction = Transaction(name, price, merchant, tag, timestamp)
     transaction_repository.save(transaction)
     return redirect('/')
+
+#EDIT
+@transactions_blueprint.route("/transactions/<id>/edit")
+def edit_transaction(id):
+    transaction = transaction_repository.select(id)
+    merchants = merchant_repository.select_all()
+    tags = tag_repository.select_all()
+    timestamp = transaction.timestamp.isoformat()
+    return render_template('transaction/edit.html', title = "Edit Transaction", transaction = transaction, merchants = merchants, tags = tags, timestamp = timestamp)
 
 #DELETE
 @transactions_blueprint.route("/transactions/<id>/delete", methods=["POST"])
