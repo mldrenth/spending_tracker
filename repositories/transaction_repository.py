@@ -45,7 +45,7 @@ def select(id):
 
 #UPDATE
 def update(transaction):
-    sql = "UPDATE transactions SET (name, price, merchant_id, tag_id, timestamp) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE transactions SET (name, price, merchant_id, tag_id, timestamp) = (%s, %s, %s, %s, %s) WHERE id = %s"
     values = (transaction.name, transaction.price, transaction.merchant.id, transaction.tag.id, transaction.timestamp, transaction.id)
     run_sql(sql, values)
 

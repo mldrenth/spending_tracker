@@ -42,6 +42,20 @@ def edit_transaction(id):
     timestamp = transaction.timestamp.isoformat()
     return render_template('transaction/edit.html', title = "Edit Transaction", transaction = transaction, merchants = merchants, tags = tags, timestamp = timestamp)
 
+#UPDATE
+@transactions_blueprint.route("/transactions/<id>", methods =['POST'])
+def update_transaction(id):
+    name = request.form['name']
+    price = request.form['price']
+    merchant_id = request.form['merchant_id']
+    tag_id = request.form['tag_id']
+    timestamp = datetime.fromisoformat(request.form['timestamp'])
+    merchant = merchant_repository.select(merchant_id)
+    tag = tag_repository.select(tag_id)
+    transaction = Transaction(name, price, merchant, tag, timestamp,id)
+    transaction_repository.update(transaction)
+    return redirect('/')
+
 #DELETE
 @transactions_blueprint.route("/transactions/<id>/delete", methods=["POST"])
 def delete_transaction(id):
