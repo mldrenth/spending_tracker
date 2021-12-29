@@ -2,13 +2,14 @@ from flask import Flask, render_template
 
 import repositories.transaction_repository as transaction_repository
 from controllers.transactions_controller import transactions_blueprint
+from controllers.merchants_controller import merchants_blueprint
 
 
 
 app = Flask(__name__)
 
 app.register_blueprint(transactions_blueprint)
-# app.register_blueprint(cities_blueprint)
+app.register_blueprint(merchants_blueprint)
 # app.register_blueprint(sights_blueprint)
 
 
