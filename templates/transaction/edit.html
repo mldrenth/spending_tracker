@@ -50,7 +50,9 @@
                             <select id="merchant_id" name="merchant_id"
                                 class="mt-1 block w-full py-2 px-3 border border-sky-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" required>
                                 {% for merchant in merchants %}
+                                {% if merchant.active %}
                                 <option value="{{merchant.id}}">{{ merchant.name }}</option>
+                                {% endif %}
 
                                 {% endfor %}
                             </select>
@@ -60,7 +62,9 @@
                             <select id="tag_id" name="tag_id"
                                 class="mt-1 block w-full py-2 px-3 border border-sky-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm" required>
                                 {% for tag in tags %}
+                                {% if tag.active %}
                                 <option value="{{tag.id}}">{{ tag.name }}</option>
+                                {% endif %}
 
                                 {% endfor %}
                             </select>
