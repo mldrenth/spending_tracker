@@ -69,17 +69,38 @@
                                         {{ transaction.timestamp }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <form action="/transactions/{{transaction.id}}/delete" method="post"><button class="text-sky-600 hover:text-sky-900" >Delete</button></form>
+                                        <form action="/transactions/{{transaction.id}}/delete" method="post"><button
+                                                class="text-sky-600 hover:text-sky-900">Delete</button></form>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="/transactions/{{transaction.id}}/edit" class="text-sky-600 hover:text-sky-900">Edit</a>
+                                        <a href="/transactions/{{transaction.id}}/edit"
+                                            class="text-sky-600 hover:text-sky-900">Edit</a>
                                     </td>
-                                    
+
                                 </tr>
                                 {% endfor %}
-
-                                <!-- More people... -->
                             </tbody>
+                            <tfoot class="bg-sky-50">
+                                <tr>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-sky-900 uppercase tracking-wider">
+                                        Total:
+                                    </th>
+                                    <th scope="col"
+                                        class="px-6 py-3 text-left text-xs font-medium text-sky-900 uppercase tracking-wider ">
+                                        {{ total_cost }}
+                                    </th>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only"></span>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only"></span>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only"></span>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only"></span>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only"></span>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

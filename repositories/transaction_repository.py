@@ -42,6 +42,12 @@ def select(id):
         transaction = Transaction(result['name'], result['price'], merchant, tag, result['timestamp'], result['id'])
     return transaction
 
+#Total Cost
+def get_total_cost():
+    transactions = select_all()
+    list_of_prices = [transaction.price for transaction in transactions]
+    return sum(list_of_prices)
+
 
 #UPDATE
 def update(transaction):
