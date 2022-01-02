@@ -18,6 +18,7 @@ app.register_blueprint(tags_blueprint)
 @app.route("/")
 def home():
    transactions = transaction_repository.select_all()
+   transactions.sort(key=lambda r: r.timestamp)
    total_cost = transaction_repository.get_total_cost()
    return render_template(
         "index.html", title="Home", transactions = transactions, total_cost = total_cost
