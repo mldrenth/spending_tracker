@@ -57,10 +57,10 @@
                                         <div class="text-sm text-sky-900">{{ transaction.price }}</div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <span
+                                        <a href="/tags/{{transaction.tag.id}}/edit"><span
                                             class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                             {{ transaction.tag.name }}
-                                        </span>
+                                        </span></a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-sky-500">
                                         {{ transaction.merchant.name }}
