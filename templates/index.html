@@ -62,8 +62,8 @@
                                             {{ transaction.tag.name }}
                                         </span></a>
                                     </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-sky-500">
-                                        {{ transaction.merchant.name }}
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-sky-500"> <a href="/merchants/{{transaction.merchant.id}}/edit">
+                                        {{ transaction.merchant.name }}</a>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-sky-500">
                                         {{ transaction.timestamp }}
